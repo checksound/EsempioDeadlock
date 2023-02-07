@@ -5,9 +5,25 @@ Vedi parte teoria: https://checksound.gitbook.io/corsojava/i-thread-e-concorrenz
 Applicazione [Main](./src/Main.java) e i due thread [LockAThenB](./src/LockAThenB.java), 
 [LockBThenA](./src/LockBThenA.java) che acquisiscono il lock a due risorse 
 in modo incrociato.
-                         ************************
 
-Esempio di deadlock [io.checksound.concurrency.Deadlock](./src/io/checksound/concurrency/Deadlock.java)
+L'output di due esecuzioni:
+
+```
+threadLockBThenA - PRESO LOCK B
+threadLockAThenB - PRESO LOCK A
+```
+```
+threadLockAThenB - PRESO LOCK A
+threadLockBThenA - PRESO LOCK B
+```
+
+In tutte e due i casi si arriva a una situazione di deadlock (stallo) 
+ed è necessario terminare il programma dall'esterno.
+
+************************
+
+Esempio di deadlock [concurrency.Deadlock](./src/concurrency/Deadlock.java)
 
 ed esempio di utilizzo della classe `java.util.concurrent.locks.Lock` con l'utilizzo del 
-lock esplicito per risolvere le problematiche del deadlock: [io.checksound.concurrency.Safelock](./src/io/checksound/concurrency/Safelock.java)
+lock esplicito per risolvere le problematiche del deadlock: 
+[concurrency.Safelock](./src/concurrency/Safelock.java)
