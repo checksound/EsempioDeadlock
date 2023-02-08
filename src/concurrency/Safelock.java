@@ -9,7 +9,6 @@ public class Safelock {
     static class Friend {
         private final String name;
         private final Lock lock = new ReentrantLock();
-
         public Friend(String name) {
             this.name = name;
         }
